@@ -4,16 +4,16 @@
  */
 public class SLList {
 
-    /** 
+    /**
      * IntListNode is a nested class that represents a single node in the
      * SLList, storing an item and a reference to the next IntListNode.
      */
     private static class IntListNode {
-        /* 
+        /*
          * The access modifiers inside a private nested class are irrelevant:
          * both the inner class and the outer class can access these instance
          * variables and methods.
-         */ 
+         */
         public int item;
         public IntListNode next;
 
@@ -21,6 +21,20 @@ public class SLList {
             this.item = item;
             this.next = next;
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            IntListNode that = (IntListNode) o;
+            return item == that.item;
+        }
+
+        @Override
+        public String toString() {
+            return item + "";
+        }
+
     }
 
     /* The first item (if it exists) is at sentinel.next. */
@@ -30,13 +44,46 @@ public class SLList {
     /** Creates an empty SLList. */
     public SLList() {
         sentinel = new IntListNode(42, null);
+        sentinel.next = sentinel;
         size = 0;
     }
 
     public SLList(int x) {
         sentinel = new IntListNode(42, null);
         sentinel.next = new IntListNode(x, null);
+        sentinel.next.next = sentinel;
         size = 1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SLList slList = (SLList) o;
+        if (size != slList.size) return false;
+
+        IntListNode l1 = sentinel.next;
+        IntListNode l2 = slList.sentinel.next;
+
+        while (l1 != sentinel && l2 != sentinel) {
+            if (!l1.equals(l2)) return false;
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        IntListNode l = sentinel.next;
+        String result = "";
+
+        while (l != sentinel) {
+            result += l + " ";
+            l = l.next;
+        }
+
+        return result.trim();
     }
 
     /** Returns an SLList consisting of the given values. */
@@ -74,9 +121,8 @@ public class SLList {
         // TODO
     }
 
-    /** Returns the reverse of this list. This method is destructive. */
+    /** Destructively reverses this list. */
     public void reverse() {
         // TODO
     }
 }
-
