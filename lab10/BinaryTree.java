@@ -12,17 +12,6 @@ public class BinaryTree<T> {
         root = t;
     }
 
-    /* Constructs a binary tree based on a given preorder traversal PRE and an
-       inorder traversal IN. */
-    public BinaryTree(ArrayList<T> pre,  ArrayList<T> in) {
-        root = listHelper(pre, in);
-    }
-
-    private TreeNode listHelper(ArrayList<T> pre,  ArrayList<T> in) {
-        // TODO: YOUR CODE HERE
-        return null;
-    }
-
     /* Print the values in the tree in preorder. */
     public void printPreorder() {
         if (root == null) {
