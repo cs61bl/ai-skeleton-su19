@@ -44,7 +44,7 @@ public class RedBlackTree<T extends Comparable<T>> {
         return null;
     }
 
-    void insert(RBTreeNode<T> node) {
+    void insert(T item) {
         // TODO: YOUR CODE HERE
     }
 
@@ -82,6 +82,21 @@ public class RedBlackTree<T extends Comparable<T>> {
             this.left = left;
             this.right = right;
         }
+    }
+
+    /* Main method to help test constructor. Feel free to modify */
+    public static void main(String[] args) {
+        BTree<Integer> bTree = new BTree<>();
+        bTree.root = new BTree.TwoThreeFourNode<>(3, 4);
+        RedBlackTree<Integer> rbTree = new RedBlackTree<>(bTree);
+        System.out.println((rbTree.root != null));
+        System.out.println((rbTree.root.left == null));
+        System.out.println((rbTree.root.right != null));
+        System.out.println((rbTree.root.isBlack));
+        System.out.println((!rbTree.root.right.isBlack));
+        System.out.println(3 == rbTree.root.item);
+        System.out.println(4 == rbTree.root.right.item);
+
     }
 
 }
