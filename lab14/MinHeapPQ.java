@@ -17,7 +17,7 @@ public class MinHeapPQ<T> implements PriorityQueue<T> {
     }
 
     /* Inserts ITEM with the priority value PRIORITYVALUE into the MinHeapPQ. If
-       ITEM is already in the MinHeapPQ, do nothing. */
+       ITEM is already in the MinHeapPQ, throw an IllegalArgumentException. */
     public void insert(T item, double priorityValue) {
         // TODO: YOUR CODE HERE
     }
@@ -30,7 +30,8 @@ public class MinHeapPQ<T> implements PriorityQueue<T> {
     }
 
     /* Changes the PriorityItem with item ITEM to have priority value
-       PRIORITYVALUE. Assume the items in the MinHeapPQ are all unique. */
+       PRIORITYVALUE. Assume the items in the MinHeapPQ are all unique. If ITEM
+       is not in the MinHeapPQ, throw a NoSuchElementException. */
     public void changePriority(T item, double priorityValue) {
         // TODO: YOUR CODE HERE
     }

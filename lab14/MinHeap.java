@@ -109,7 +109,7 @@ public class MinHeap<E extends Comparable<E>> {
     }
 
     /* Inserts ELEMENT into the MinHeap. If ELEMENT is already in the MinHeap,
-       do nothing.*/
+       throw an IllegalArgumentException.*/
     public void insert(E element) {
         // TODO: YOUR CODE HERE
     }
@@ -128,8 +128,8 @@ public class MinHeap<E extends Comparable<E>> {
 
     /* Replaces and updates the position of ELEMENT inside the MinHeap, which
        may have been mutated since the initial insert. If a copy of ELEMENT does
-       not exist in the MinHeap, do nothing. Item equality should be checked
-       using .equals(), not ==. */
+       not exist in the MinHeap, throw a NoSuchElementException. Item equality
+       should be checked using .equals(), not ==. */
     public void update(E element) {
         // TODO: YOUR CODE HERE
     }
